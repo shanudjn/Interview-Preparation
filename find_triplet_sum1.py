@@ -16,6 +16,5 @@ def find_triplet(array, size, sum):
     return False
 array = [1, 4, 45, 6, 10, 8]
 sum = 22
-#check with 12 
 size = len(array)
 find_triplet(array, size, sum)
