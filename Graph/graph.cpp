@@ -2,14 +2,21 @@
 using namespace std;
 
 
-void print(int **edges, int n){
-  for(int i = 0 ; i < n ; i ++){
-    for(int j = 0 ; j < n ; j++){
-      cout << edges[i][j] << " ";
+void print(int **edges, int n, int startingVertex){
+  cout << startingVertex << endl;
+  visited[startingVertex] = true;
+
+  for(int i = 0; i < n; i++){
+    if(i == startingVertex){
+      continue;
     }
-    cout << endl;
+    if(edges[startingVertex][i] == 1){
+      if(visited[i] == true){
+        continue;
+      }
+      print(edges, n, i, visited);
+    }
   }
-  //cout << edges[0][0] <<endl;
 }
 
 int main(){
@@ -28,6 +35,10 @@ int main(){
     edges[s][f] = 1;
     edges[f][s] = 1;
   }
-  print(edges, n);
+  bool *visited = new bool[n];
+  for(int i = 0 ; i < n; i++){
+    visited[i] = false;
+  }
+  print(edges, n, 0, visited);
 
 }
