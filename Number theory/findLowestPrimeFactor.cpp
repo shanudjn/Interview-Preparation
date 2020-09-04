@@ -8,8 +8,8 @@ void lowestPrimefactor(int n, int * p){
   p[1] = 1;
   for(int i = 2 ; i <= n; i++){
     if(p[i] == 0){
-      p[i] = i;
-      for(int j = 2; i*j <= n; j++){
+
+      for(int j = 1; i*j <= n; j++){
         if(p[i*j] == 0){
           p[i*j] = i;
         }
